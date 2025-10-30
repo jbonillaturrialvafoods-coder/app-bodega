@@ -7,6 +7,8 @@ COPY src/backend/requirements.txt ./requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Opcional: permitir pasar DATABASE_URL como build-arg (no recomendado para secretos)
+ARG DATABASE_URL
 ENV DATABASE_URL=${DATABASE_URL}
 
 EXPOSE 8000
