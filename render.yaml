@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: warehouse-backend
+    env: docker
+    repo: REPLACE_WITH_YOUR_REPO_URL
+    branch: main
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase: false
+        value: ${{DATABASE_URL}}
+
+  - type: web
+    name: warehouse-frontend
+    env: docker
+    repo: REPLACE_WITH_YOUR_REPO_URL
+    branch: main
+    dockerfilePath: frontend/Dockerfile
+    envVars: []
+
+databases:
+  - name: warehouse-db
+    plan: starter
